@@ -66,6 +66,27 @@ public class LoginPage {
 		
 
 		
+	}
+	
+	
+	@Test
+	public void Loginfailed()
+	
+	{
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.findElement(By.xpath("//input[@id='x-auto-22-input']")).sendKeys("iht_ittest021");
+		
+		driver.findElement(By.id("x-auto-24-input")).sendKeys("Ihealth12");
+		
+		driver.findElement(By.xpath("//button[text()='Sign In']")).click();
+		
+		boolean val1 = driver.findElement(By.xpath("//label[text()='The username or password provided was incorrect.']")).isDisplayed();
+		
+		if (val1){
+			Reporter.log("Login failure message displayed successfully");
+		}
 		
 	}
 	
