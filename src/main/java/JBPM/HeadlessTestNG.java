@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
@@ -16,21 +17,24 @@ import org.testng.annotations.Test;
 
 public class HeadlessTestNG {
 	
-	//WebDriver driver;
-	HtmlUnitDriver driver;
+	WebDriver driver;
+	
 	
 	@BeforeMethod
 	public void SetUpApplication()
 	{
-		/*String Path = System.getProperty("user.dir");	
+		String Path = System.getProperty("user.dir");	
 		
 		System.out.println(Path);
 		
 		System.setProperty("webdriver.chrome.driver", Path + "/BrowserDrivers/Chrome/chromedriver.exe");
 		
-		driver = new ChromeDriver();*/
+		ChromeOptions options = new ChromeOptions();			    
+		options.addArguments("headless");
+		options.addArguments("window-size=1200x600");   
 		
-		driver = new HtmlUnitDriver(true);
+		driver = new ChromeDriver(options);	
+		
 		
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);     
 		
@@ -60,8 +64,10 @@ public class HeadlessTestNG {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				
 		driver.findElement(By.xpath("//input[@id='x-auto-22-input']")).sendKeys("iht_ittest01");
+		System.out.println("Username is entered successfully");
 		
 		driver.findElement(By.id("x-auto-24-input")).sendKeys("Ihealth123");
+		System.out.println("password is entered successfully");
 		
 		driver.findElement(By.xpath("//button[text()='Sign In']")).click();
 		
@@ -82,15 +88,19 @@ public class HeadlessTestNG {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//input[@id='x-auto-22-input']")).sendKeys("iht_ittest021");
+		System.out.println("Username is entered successfully");
 		
 		driver.findElement(By.id("x-auto-24-input")).sendKeys("Ihealth12");
+		System.out.println("password is entered successfully");
 		
 		driver.findElement(By.xpath("//button[text()='Sign In']")).click();
+		System.out.println("Sign In Button is clicked Successfully");
 		
 		boolean val1 = driver.findElement(By.xpath("//label[text()='The username or password provided was incorrect.']")).isDisplayed();
 		
 		if (val1){
 			Reporter.log("Login failure message displayed successfully");
+			System.out.println("Unable to login into JBPM Application");
 		}
 		
 	}
