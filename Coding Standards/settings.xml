@@ -1,0 +1,77 @@
+<!-- iHealth settings.xml for use by developers on their PCs -->
+
+<settings>
+	<localRepository>C:/.m2/repository</localRepository>
+	<mirrors>
+		<mirror>
+			<id>nexus</id>
+			<mirrorOf>*</mirrorOf>
+			<url>https://bamboo.ihtech.com/nexus/content/groups/public</url>
+		</mirror>
+	</mirrors>
+	<pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+	<profiles>
+		<profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://localhost:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+		<profile>
+			<id>ihealth</id>
+			<repositories>
+				<repository>
+					<id>central</id>
+					<url>http://central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+<!--				<repository>
+					<id>jboss-thirdparty-releases</id>
+					<name>JBoss Thirdparty Releases</name>
+					<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+				</repository> -->
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<url>http://central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+<!--				<pluginRepository>
+					<id>mvn-repo</id>
+					<url>http://mvn-repo.ihealthtechnologies.com/nexus/content/groups/public-ivy</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository> -->
+			</pluginRepositories>
+			<properties>
+				<iht.site.path>/Site</iht.site.path>
+			</properties>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>ihealth</activeProfile>
+	</activeProfiles>
+</settings>
