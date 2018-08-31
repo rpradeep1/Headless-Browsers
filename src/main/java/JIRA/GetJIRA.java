@@ -1,9 +1,6 @@
 package JIRA;
 
 
-
-
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -11,18 +8,17 @@ import java.net.URISyntaxException;
 
 import org.testng.annotations.Test;
 
-import com.atlassian.jira.rest.client.GetCreateIssueMetadataOptionsBuilder;
+
 import com.atlassian.jira.rest.client.IssueRestClient;
 import com.atlassian.jira.rest.client.JiraRestClient;
-import com.atlassian.jira.rest.client.domain.CimProject;
 import com.atlassian.jira.rest.client.internal.jersey.JerseyJiraRestClientFactory;
-
 import net.rcarz.jiraclient.BasicCredentials;
 import net.rcarz.jiraclient.Field;
 import net.rcarz.jiraclient.Issue;
 import net.rcarz.jiraclient.JiraClient;
 import net.rcarz.jiraclient.JiraException;
 import net.rcarz.jiraclient.RestException;	
+
 
 
 
@@ -57,7 +53,7 @@ public class GetJIRA {
     	final JiraRestClient restClient = clientFactory.createWithBasicHttpAuthentication(URI.create("http://usddjira01:8080/"), "admin", "admin");
     	final IssueRestClient issueClient = restClient.getIssueClient();
     	
-    
+    	
     	
     	
     	
