@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="JIRA.GetJIRA">
+      <class name="JIRA.CreateJIRAIssue">
         <methods>
-          <include name="testcase1"/>
+          <include name="test1"/>
         </methods>
-      </class> <!-- JIRA.GetJIRA -->
+      </class> <!-- JIRA.CreateJIRAIssue -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
